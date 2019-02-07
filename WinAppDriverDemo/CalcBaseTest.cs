@@ -36,7 +36,7 @@ namespace WinAppDriverDemo
         [Test]
         public void CheckUiExist()
         {
-
+            Assert.NotNull(calcSession.FindElementsByName("Calculator"), "Calc does NOT exist");
         }
     }
 }
