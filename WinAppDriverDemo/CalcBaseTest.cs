@@ -38,5 +38,16 @@ namespace WinAppDriverDemo
         {
             Assert.NotNull(calcSession.FindElementsByName("Calculator"), "Calc does NOT exist");
         }
+
+        [Test]
+        public void CheckAdding()
+        {
+            calcSession.FindElementByName("Five").Click();
+            calcSession.FindElementByName("Plus").Click();
+            calcSession.FindElementByName("Nine").Click();
+            calcSession.FindElementByName("Equals").Click();
+            var result = calcSession.FindElementByAccessibilityId("CalculatorResults").Text;
+            Assert.AreEqual("Display is 14", result);         
+        }
     }
 }
